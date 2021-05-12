@@ -24,7 +24,7 @@ public:
 	void setGenero(int gen) { genero = gen; }
 
 	void setTelefono(int tel) { telefono = tel; }
-	void setNombre(int nom) { nombres = nom; }
+	void setNombres(int nom) { nombres = nom; }
 	void setFechaingreso(string fi) { fecha_ingreso = fi; }
 
 	//get (mostrar)

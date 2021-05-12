@@ -20,8 +20,8 @@ public:
 		fecha_inicio_lab = fil;
 		fecha_ingreso = fi;
 	}
-	void setNombreS(string nom) { nombres = nom; }
-	void setApellidoS(string ape) { apellidos = ape; }
+	void setNombres(string nom) { nombres = nom; }
+	void setApellidos(string ape) { apellidos = ape; }
 	void setDireccion(string dir) { direccion = dir; }
 	void setTelefono(int tel) { telefono = tel; }
 	void setDpi(int DPI) { dpi = DPI; }
@@ -30,8 +30,8 @@ public:
 	void setFechaInicioLabores(string fil) { fecha_inicio_lab = fil; }
 	void setFechaIngreso(string fi) { fecha_ingreso = fi; }
 
-	string getNombreS() { return nombres; }
-	string getApellidoS() { return apellidos; }
+	string getNombres() { return nombres; }
+	string getApellidos() { return apellidos; }
 	string getDireccion() { return direccion; }
 	int getTelefono() { return telefono; }
 	string getDpi() { return dpi; }
