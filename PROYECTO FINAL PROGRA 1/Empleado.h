@@ -3,6 +3,7 @@
 #include "ConexionBD.h"
 #include <iostream>
 #include <mysql.h>
+#include <string>
 using namespace std;
 class Empleado : Persona
 {
@@ -27,6 +28,7 @@ public:
 	void setDpi(int DPI) { dpi = DPI; }
 	void setGenero(int gen) { genero = gen; }
 	void setFechaNacimiento(string fn) { fecha_nacimiento = fn; }
+	void setIdPuesto(int idp) { id_puesto = idp; }
 	void setFechaInicioLabores(string fil) { fecha_inicio_lab = fil; }
 	void setFechaIngreso(string fi) { fecha_ingreso = fi; }
 
@@ -37,6 +39,7 @@ public:
 	string getDpi() { return dpi; }
 	int getGenero() {return genero ; }
 	string getFechaNacimiento() { return fecha_nacimiento ; }
+	int getIdPuesto() { return id_puesto; }
 	string getFechaInicioLabores() { return fecha_inicio_lab ; }
 	string getFechaIngreso() { return fecha_ingreso ; }
 
@@ -44,7 +47,24 @@ public:
 		int q_estado;
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
-
+		string t = to_string(telefono);
+		string g = to_string(genero);
+		string ip = to_string(id_puesto);
+		if (cn.getConectar()) {
+			string  consulta = "INSERT INTO empleados (nombres, apellidos, direccion, telefono, DPI, genero,fecha_nacimento, idPuesto, fecha_inicio_labores, fechaingreso) VALUES ('"+nombres+"', '"+apellidos+"', '"+direccion+"', '"+t+"', '"+dpi+"', "+g+", '"+fecha_nacimiento+"', '"+ip+"', '"+fecha_inicio_lab+"', now());";
+			const char* i = consulta.c_str();
+			// executar el query
+			q_estado = mysql_query(cn.getConectar(), i);
+			if (!q_estado) {
+				cout << "Ingreso Exitoso ..." << endl;
+			}
+			else {
+				cout << " xxx Error al Ingresar  xxx" << endl;
+			}
+		}
+		else {
+			cout << "error de conexion" << endl;
+		}
 		cn.cerrar_conexion();
 	}
 	void mostrar() {
@@ -67,29 +87,84 @@ public:
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 			}
-
-			cn.cerrar_conexion();
 		}
+		else {
+			cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+		}
+			cn.cerrar_conexion();
 	}
-	void buscar() {
+	void buscar(int ide) {
 		int q_estado;
+			MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		string dato = to_string(ide);
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
-
+		if (cn.getConectar()) {
+			string consulta = "select e.idEmpleado,e.nombres,e.apellidos,e.direccion,e.telefono,e.DPI,e.genero,e.fecha_nacimento,p.puesto,e.fecha_inicio_labores,e.fechaingreso from empleados as e inner join puestos as p on e.idPuesto = p.id_puesto where e.idEmpleado ="+dato+" ; ";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				cout << "id | nombres | apellidos | direccion | telefono | dpi | genero | fecha nacimiento | puesto | inicio de labores | fecha de ingreso" << endl;
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << fila[6] << " | " << fila[7] << " | " << fila[8] << " | " << fila[9] << " | " << fila[10] << endl;
+				}
+			}
+			else {
+				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+			}
+		}
+		else {
+			cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+		}
 		cn.cerrar_conexion();
 	}
-	void modificar() {
+	void modificar(int idEmpleado) {
 		int q_estado;
+		string ide = to_string(idEmpleado);
+		string t = to_string(telefono);
+		string g = to_string(genero);
+		string ip = to_string(id_puesto);
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
-
+		if (cn.getConectar()) {
+			string  consultar = "UPDATE empleados SET nombres = '"+nombres+"', apellidos = '"+apellidos+"', direccion = '"+direccion+"', telefono = '"+t+"', DPI = '"+dpi+"', genero = '"+g+"', fecha_nacimento = '"+fecha_nacimiento+"', idPuesto = '"+ip+"', fecha_inicio_labores = '"+fecha_inicio_lab+"', fechaingreso = '"+fecha_ingreso+"' WHERE (idEmpleado = '"+ide+"');";
+			const char* i = consultar.c_str();
+			// executar el query
+			q_estado = mysql_query(cn.getConectar(), i);
+			if (!q_estado) {
+				cout << "Ingreso Exitoso ..." << endl;
+			}
+			else {
+				cout << " xxx Error al Ingresar  xxx" << endl;
+			}
+		}
+		else {
+			cout << "error de conexion" << endl;
+		}
 		cn.cerrar_conexion();
 	}
-	void eliminar() {
+	void eliminar(int idEmpleado) {
 		int q_estado;
+		string ide = to_string(idEmpleado);
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
-
+		if (cn.getConectar()) {
+			string  consultar = "DELETE FROM empleados WHERE idEmpleado=" + ide + ";";
+			const char* i = consultar.c_str();
+			// executar el query
+			q_estado = mysql_query(cn.getConectar(), i);
+			if (!q_estado) {
+				cout << "Ingreso Exitoso ..." << endl;
+			}
+			else {
+				cout << " xxx Error al Ingresar  xxx" << endl;
+			}
+		}
+		else {
+			cout << "error de conexion" << endl;
+		}
 		cn.cerrar_conexion();
 	}
 };
