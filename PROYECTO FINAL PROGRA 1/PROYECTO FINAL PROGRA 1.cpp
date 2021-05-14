@@ -383,50 +383,71 @@ void ingresarPuesto() {
 }
 void buscarPuesto() {
     int idp;
+    bool existe;
     cout << "INGRESE EL ID DEL PUESTO A BUSCAR ";
     cin >> idp;
     Puesto p = Puesto();
-    p.buscar(idp);
+    existe = p.existepuesto(idp);
+    if (existe == true) {
+        p.buscar(idp);
+    }
+    else {
+        cout << "NO SE ENCONTRO EL ID EN LA BASE DE DATOS" << endl;
+    }
 }
 void modificarPuesto() {
     int idp;
     string puesto;
     char respuesta;
+    bool existe;
     cout << "INGRESE EL ID DEL PUESTO ";
     cin >> idp;
     Puesto p = Puesto();
-    p.buscar(idp);
-    cout << "SEGURO QUE QUIERE MODIFICAR ESTE REGISTRO [S/N]" << endl;
-    cin >> respuesta;
-    if ((respuesta == 's') || (respuesta == 'S')) {
-        cout << "INGRESE EL NUEVO NOMBRE DEL PUESTO " << endl;
-        cin.ignore();
-        getline(cin, puesto);
-         p = Puesto(puesto);
-         p.modificar(idp);
+    existe = p.existepuesto(idp);
+    if (existe == true) {
+        p.buscar(idp);
+        cout << "SEGURO QUE QUIERE MODIFICAR ESTE REGISTRO [S/N]" << endl;
+        cin >> respuesta;
+        if ((respuesta == 's') || (respuesta == 'S')) {
+            cout << "INGRESE EL NUEVO NOMBRE DEL PUESTO " << endl;
+            cin.ignore();
+            getline(cin, puesto);
+            p = Puesto(puesto);
+            p.modificar(idp);
+        }
+        else
+        {
+            cout << "SE HA INTERRUMPIDO LA MODIFICACION" << endl;
+        }
     }
-    else
-    {
-        cout << "SE HA INTERRUMPIDO LA MODIFICACION" << endl;
+    else {
+        cout << "EL ID QUE INGRESO NO ESTA REGISTRADO EN LA BASE DE DATOS"<<endl;
     }
 }
 void eliminarPuesto() {
     int idp;
     string puesto;
     char respuesta;
+    bool existe;
     cout << "INGRESE EL ID DEL PUESTO ";
     cin >> idp;
     Puesto p = Puesto();
-    p.buscar(idp);
-    cout << "RECUERDE QUE NO PUEDE ELIMINAR UN PUESTO SI HAY EMPLEADOS ASIGNADOS A ESTE" << endl;
-    cout << "SEGURO QUE QUIERE ELIMINAR ESTE REGISTRO [S/N]" << endl;
-    cin >> respuesta;
-    if ((respuesta == 's') || (respuesta == 'S')) {
-        p.eliminar(idp);
+    existe = p.existepuesto(idp);
+    if (existe == true) {
+        p.buscar(idp);
+        cout << "RECUERDE QUE NO PUEDE ELIMINAR UN PUESTO SI HAY EMPLEADOS ASIGNADOS A ESTE" << endl;
+        cout << "SEGURO QUE QUIERE ELIMINAR ESTE REGISTRO [S/N]" << endl;
+        cin >> respuesta;
+        if ((respuesta == 's') || (respuesta == 'S')) {
+            p.eliminar(idp);
+        }
+        else
+        {
+            cout << "SE HA INTERRUMPIDO LA ELIMINACION" << endl;
+        }
     }
-    else
-    {
-        cout << "SE HA INTERRUMPIDO LA ELIMINACION" << endl;
+    else {
+        cout << "NO SE HA ENCONTRADO EL ID EN LA BASE DE DATOS" << endl;
     }
 }
 
@@ -483,15 +504,116 @@ void ingresarEmpleado() {
 
 void buscarEmpleado() {
     Empleado e = Empleado();
+    bool existe;
     int ide;
     cout << "INGRESE EL ID DEL EMPLEADO A BUSCAR ";
     cin >> ide;
-    e.buscar(ide);
+    existe = e.existeEmpleado(ide);
+    if (existe == true) {
+        e.buscar(ide);
+    }
+    else {
+        cout << "NO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
+    }
 }
 void modificarEmpleado() {
-    
+    Empleado e = Empleado();
+    Puesto pu = Puesto();
+    string nombres, apellidos, direccion, dpi, fecha_nacimiento, fecha_inicio_lab, mf;
+    int id_puesto, telefono, genero = -1;
+    bool existeE,existe;
+    int ide;
+    char respuesta;
+    cout << "INGRESE EL ID DEL EMPLEADO A MODIFICAR ";
+    cin >> ide;
+    existeE = e.existeEmpleado(ide);
+    if (existeE == true) {
+        e.buscar(ide);
+        cout << "SEGURO QUE QUIERE MODIFICAR ESTE REGISTRO [S/N]";
+        cin >> respuesta;
+        if (respuesta == 'S' || respuesta == 's') {
+            cout << "INGRESE NOMBRES ";
+            cin.ignore();
+            getline(cin, nombres);
+
+            cout << "INGRESE APELLIDOS ";
+            getline(cin, apellidos);
+
+            cout << "INGRESE LA DIRECCION DE DOMICILIO ";
+            getline(cin, direccion);
+
+            cout << "INGRESE TELEFONO ";
+            cin >> telefono;
+
+            cout << "INGRESE SU DPI ";
+            cin.ignore();
+            getline(cin, dpi);
+
+            cout << "INGRESE SU GENERO [M/F] ";
+            do {
+                cin >> mf;
+                if (mf == "M" || mf == "m") {
+                    genero = 0;
+                }
+                else {
+                    if (mf == "F" || mf == "f") {
+                        genero = 1;
+                    }
+                    else {
+                        cout << "PORFAVOR INGRESE UNA OPCION VALIDA " << endl;
+                        cout << "INGRESE SU GENERO [M/F] ";
+                    }
+                }
+            } while (genero != 0 && genero != 1);
+
+            cout << "INGRESE LA FECHA DE NACIMIENTO [AÑO-MES-DIA] ";
+            cin.ignore();
+            getline(cin, fecha_nacimiento);
+
+            cout << "ASIGNE EL PUESTO POR MEDIO DEL ID " << endl;
+            do {
+                pu.mostrar();
+                cout << endl << "ASIGNE UN VALOR VALIDO ---> ";
+                cin >> id_puesto;
+                existe = pu.existepuesto(id_puesto);
+            } while (existe == false);
+
+            cout << "INGRESE LA FECHA DE INICIO DE LABORES [AÑO-MES-DIA] ";
+            cin.ignore();
+            getline(cin, fecha_inicio_lab);
+            e = Empleado(nombres, apellidos, direccion, telefono, dpi, genero, fecha_nacimiento, id_puesto, fecha_inicio_lab, "");
+            e.modificar(ide);
+        }
+        else {
+            cout << "MODIFICACION CANCELADA" << endl;
+        }
+    }
+    else {
+        cout << "NO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
+    }
 }
 void eliminarEmpleado() {
+    Empleado e = Empleado();
+    bool existe;
+    int ide;
+    char respuesta;
+    cout << "INGRESE EL ID DEL EMPLEADO A BUSCAR ";
+    cin >> ide;
+    existe = e.existeEmpleado(ide);
+    if (existe == true) {
+        e.buscar(ide);
+        cout << "SEGURO QUE QUIERES ELIMINAR ESTE REGISTRO [S/N] ";
+        cin >> respuesta;
+        if (respuesta == 'S' || respuesta == 's') {
+            e.eliminar(ide);
+        }
+        else {
+            cout << "SE HA DETENIDO LA ELIMINACION" << endl;
+        }
+    }
+    else {
+        cout << "NO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
+    }
 
 }
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar

@@ -129,7 +129,7 @@ public:
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string  consultar = "UPDATE empleados SET nombres = '"+nombres+"', apellidos = '"+apellidos+"', direccion = '"+direccion+"', telefono = '"+t+"', DPI = '"+dpi+"', genero = '"+g+"', fecha_nacimento = '"+fecha_nacimiento+"', idPuesto = '"+ip+"', fecha_inicio_labores = '"+fecha_inicio_lab+"', fechaingreso = '"+fecha_ingreso+"' WHERE (idEmpleado = '"+ide+"');";
+			string  consultar = "UPDATE empleados SET nombres = '"+nombres+"', apellidos = '"+apellidos+"', direccion = '"+direccion+"', telefono = '"+t+"', DPI = '"+dpi+"', genero = "+g+", fecha_nacimento = '"+fecha_nacimiento+"', idPuesto = '"+ip+"', fecha_inicio_labores = '"+fecha_inicio_lab+"', fechaingreso = now() WHERE (idEmpleado = '"+ide+"');";
 			const char* i = consultar.c_str();
 			// executar el query
 			q_estado = mysql_query(cn.getConectar(), i);
@@ -156,16 +156,50 @@ public:
 			// executar el query
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << "Ingreso Exitoso ..." << endl;
+				cout << "Eliminacion Exitosa ..." << endl;
 			}
 			else {
-				cout << " xxx Error al Ingresar  xxx" << endl;
+				cout << " xxx Error al Eliminar xxx" << endl;
 			}
 		}
 		else {
 			cout << "error de conexion" << endl;
 		}
 		cn.cerrar_conexion();
+	}
+
+	bool existeEmpleado(int ide) {
+		int q_estado;
+		int f = 0;
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		string dato = to_string(ide);
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "select e.idEmpleado,e.nombres,e.apellidos,e.direccion,e.telefono,e.DPI,e.genero,e.fecha_nacimento,p.puesto,e.fecha_inicio_labores,e.fechaingreso from empleados as e inner join puestos as p on e.idPuesto = p.id_puesto where e.idEmpleado =" + dato + " ; ";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					f++;
+				}
+			}
+			else {
+				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+			}
+		}
+		else {
+			cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+		}
+		cn.cerrar_conexion();
+		if (f == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 };
 

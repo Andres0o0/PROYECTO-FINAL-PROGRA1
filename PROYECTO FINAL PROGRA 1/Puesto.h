@@ -151,7 +151,6 @@ public:
 					resultado = mysql_store_result(cn.getConectar());
 					while (fila = mysql_fetch_row(resultado)) {
 						f++;
-						cout << fila[0] << "  " << fila[1] << endl;
 					}
 				}
 				else {
