@@ -201,6 +201,42 @@ public:
 			return false;
 		}
 	}
+
+	void asignardatos(int idEmpleado) {
+		int q_estado;
+		string error = "ERROR";
+		string id = to_string(idEmpleado);
+		string t;
+		string g;
+		string idp;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT * FROM empleados where idEmpleado="+id+";";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					nombres = fila[1];
+					apellidos = fila[2];
+					direccion = fila[3];
+					
+
+				}
+			}
+			else {
+				cout << "ERROR DE CONEXION" << endl;
+			}
+
+		}
+		else {
+			cout << "ERROR DE CONEXION" << endl;
+		}
+		cn.cerrar_conexion();
+	}
 };
 
 
