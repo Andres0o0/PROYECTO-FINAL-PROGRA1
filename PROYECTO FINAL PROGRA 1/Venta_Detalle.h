@@ -3,6 +3,7 @@
 #include "ConexionBD.h"
 #include <mysql.h>
 #include <string>
+#include "Pantalla.h"
 using namespace std;
 class Venta_Detalle
 {
@@ -41,7 +42,6 @@ public:
 			// executar el query
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << "Ingreso Exitoso ..." << endl;
 			}
 			else {
 				cout << " xxx Error al Ingresar  xxx" << endl;
@@ -55,35 +55,67 @@ public:
 
 	void buscar() {
 		int q_estado;
-		int total = 0;
-		int precio;
+		float total = 0;
+		float precio;
+		float cant;
 		string dato = "0";
+		string dato2 = "0";
 		string id_v = to_string(id_venta);
 		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
+		Pantalla pa = Pantalla();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT vd.idventas_detalle,p.producto,m.marca,p.descripcion,vd.cantidad,vd.precio_unitario FROM ventas_detalle as vd inner join ventas as v on vd.idVenta=v.idVenta inner join productos as p on vd.idProducto=p.idProducto inner join marcas as m on p.idMarca=m.idMarca where vd.idVenta=" + id_v + ";";
+			int y = 15;
+			string consulta = "SELECT vd.idventas_detalle,p.producto,m.marca,p.descripcion,vd.cantidad,vd.precio_unitario FROM ventas_detalle as vd inner join ventas as v on vd.idVenta=v.idVenta inner join productos as p on vd.idProducto=p.idProducto inner join marcas as m on p.idMarca=m.idMarca where vd.idVenta=" + id_v + "  order by vd.idventas_detalle;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
+				char div = 186;
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "id | PRODUCTO | MARCA | DESCRIPCION  | CANTIDAD | PRECIO UNITARIO" << endl;
+				pa.color(128);
+				pa.gotoxy(8, y); cout << "ID                                                                                            ";
+				pa.gotoxy(11, y); cout << div << " PRODUCTO ";
+				pa.gotoxy(31, y); cout <<div<< " MARCA ";
+				pa.gotoxy(41, y); cout << div << " DESCRIPCION ";
+				pa.gotoxy(71, y); cout << div << " CANTIDAD ";
+				pa.gotoxy(85, y); cout << div << "PRECIO UNITARIO";
+				y++;
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << endl;
+					pa.color(240);
+					pa.gotoxy(8, y); cout << "                                                                                             ";
+					pa.gotoxy(8, y);  cout	<<fila[0];
+					pa.gotoxy(11, y); cout << div << " " << fila[1];
+					pa.gotoxy(31, y); cout << div << " " << fila[2];
+					pa.gotoxy(41, y); cout << div << " " << fila[3];
+					pa.gotoxy(71, y); cout << div << " " << fila[4];
+					pa.gotoxy(85, y); cout << div << " " <<"Q "<< fila[5];
 					dato = fila[5];
+					dato2 = fila[4];
+					cant = stoi(dato2);
 					precio = stoi(dato);
-					total = total + precio;
+					total = total + (precio*cant);
+					y++;
 				}
-
-				cout << endl<< "EL TOTAL A PAGAR ES " << total<<endl;
+				pa.color(112);
+				pa.gotoxy(8, y); cout << "                                                                                             ";
+				pa.gotoxy(13, y);
+				cout << "TOTAL A PAGAR ES ";
+				pa.gotoxy(87, y);cout <<"Q "<< total;
+				y++;
+				pa.color(240);
+				pa.dibujarCuadro(7, 14, 101, y);
+				cout << endl;
+				pa.color(15);
 			}
 			else {
+				pa.color(15);
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 			}
 		}
 		else {
+			pa.color(15);
 			cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 		}
 		cn.cerrar_conexion();
@@ -91,6 +123,7 @@ public:
 
 	void buscarEspecifico(int id_vd) {
 		int q_estado;
+		Pantalla pa = Pantalla();
 		string id_ventadetalle = to_string(id_vd);
 		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
@@ -101,12 +134,28 @@ public:
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
+				char div = 186;
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "id | PRODUCTO | MARCA | DESCRIPCION  | CANTIDAD | PRECIO UNITARIO" << endl;
+				pa.color(79);
+				pa.gotoxy(8, 9); cout << "ID                                                                                            ";
+				pa.gotoxy(11, 9); cout << div << " PRODUCTO ";
+				pa.gotoxy(31, 9); cout << div << " MARCA ";
+				pa.gotoxy(41, 9); cout << div << " DESCRIPCION ";
+				pa.gotoxy(71, 9); cout << div << " CANTIDAD ";
+				pa.gotoxy(85, 9); cout << div << "PRECIO UNITARIO";
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << endl;
-					
+					pa.color(64);
+					pa.gotoxy(8, 10); cout << "                                                                                             ";
+					pa.gotoxy(8, 10);  cout << fila[0];
+					pa.gotoxy(11, 10); cout << div << " " << fila[1];
+					pa.gotoxy(31, 10); cout << div << " " << fila[2];
+					pa.gotoxy(41, 10); cout << div << " " << fila[3];
+					pa.gotoxy(71, 10); cout << div << " " << fila[4];
+					pa.gotoxy(85, 10); cout << div << " " << "Q " << fila[5];
 				}
+				
+				cout << endl;
+				pa.color(15);
 			}
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";

@@ -3,6 +3,7 @@
 #include "ConexionBD.h"
 #include <mysql.h>
 #include <string>
+#include "Pantalla.h"
 using namespace std;
 class Producto
 {
@@ -376,6 +377,36 @@ public:
 		}
 		cn.cerrar_conexion();
 		
+	}
+
+	void verProducto(int ide) {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		Pantalla pa = Pantalla();
+		string dato = to_string(ide);
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT p.producto,m.marca,p.descripcion FROM productos as p inner join marcas as m on p.idmarca = m.idmarca where p.idProducto = "+dato+"; ";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				
+				while (fila = mysql_fetch_row(resultado)) {
+
+					pa.color(96);
+					cout <<"PRODUCTO: "<<fila[0] << " | MARCA: " << fila[1] << " | DESCRIPCION " << fila[2] << endl;
+				}
+				pa.color(15);
+			}
+			else {
+				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
+			}
+
+			cn.cerrar_conexion();
+		}
 	}
 };
 

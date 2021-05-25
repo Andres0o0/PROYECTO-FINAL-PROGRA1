@@ -3,6 +3,7 @@
 #include "ConexionBD.h"
 #include <mysql.h>
 #include <string>
+#include "Pantalla.h"
 using namespace std;
 class Puesto
 {
@@ -50,11 +51,28 @@ public:
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
+				int y1 = 8;
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "id, PUESTOS" << endl;
+				Pantalla pa = Pantalla();
+				char div = 186;
+				pa.color(96);
+				pa.dibujarCuadro(37, 1, 77, 3);
+				pa.gotoxy(38, 2);
+				cout << "ID PUESTO "<<div<<"    NOMBRE DE LOS PUESTOS   " << endl;
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << "  " << fila[1] << endl;
+					pa.color(6);
+					pa.gotoxy(39, y1);
+					cout << fila[0];
+					pa.gotoxy(50,y1);
+					cout<<fila[1];
+					pa.color(15);
+					pa.gotoxy(48, y1);
+					cout << div;
+					y1++;
 				}
+				pa.color(15);
+				pa.dibujarCuadro(37, 5, 77, y1);
+				cout << endl;
 			}
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
@@ -78,10 +96,27 @@ public:
 				q_estado = mysql_query(cn.getConectar(), c);
 				if (!q_estado) {
 					resultado = mysql_store_result(cn.getConectar());
-					cout << "id, PUESTOS" << endl;
+					int y1 = 14;
+					Pantalla pa = Pantalla();
+					char div = 186;
+					pa.color(96);
+					pa.dibujarCuadro(37, 9, 77, 11);
+					pa.gotoxy(38, 10);
+					cout << "ID PUESTO " << div << "    NOMBRE DE LOS PUESTOS   ";
 					while (fila = mysql_fetch_row(resultado)) {
-						cout << fila[0] << "  " << fila[1] << endl;
+						pa.color(6);
+						pa.gotoxy(39, y1);
+						cout << fila[0];
+						pa.gotoxy(50, y1);
+						cout << fila[1];
+						pa.color(15);
+						pa.gotoxy(48, y1);
+						cout << div;
+						y1++;
 					}
+					pa.color(15);
+					pa.dibujarCuadro(37, 13, 77, y1);
+					cout << endl;
 				}
 				else {
 					cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
@@ -94,6 +129,7 @@ public:
 		}
 		void modificar(int idPuesto) {
 			int q_estado;
+			Pantalla pa = Pantalla();
 			string idp = to_string(idPuesto);
 			ConexionBD cn = ConexionBD();
 			cn.abrir_conexion();
@@ -102,22 +138,28 @@ public:
 				const char* c = consulta.c_str();
 				q_estado = mysql_query(cn.getConectar(), c);
 				if (!q_estado) {
-					cout << "INGRESO EXITOSO" << endl;
+					pa.color(15);
+					pa.gotoxy(39, 3);
+					cout << " INGRESO EXISTOSO ";
 					}
 				else {
+					pa.gotoxy(39, 3);
 					cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 				}
 			}
 			else {
+				pa.gotoxy(39, 3);
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 			}
 			cn.cerrar_conexion();
 		}
 		void eliminar(int idPuesto) {
 			int q_estado;
+			Pantalla pa = Pantalla();
 			string idp = to_string(idPuesto);
 			ConexionBD cn = ConexionBD();
 			cn.abrir_conexion();
+			pa.gotoxy(39, 21);
 			if (cn.getConectar()) {
 				string consulta = "Delete from puestos where (id_puesto = '" + idp + "');";
 				const char* c = consulta.c_str();

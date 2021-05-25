@@ -1,25 +1,64 @@
 ﻿  PROYECTO FINAL PROGRA 1.cpp
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(25,17): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(31,17): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(35,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(37,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(39,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(41,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Cliente.h(91,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Cliente.h(172,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Puesto.h(57,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Puesto.h(101,17): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Empleado.h(87,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Empleado.h(177,16): warning C4309: 'inicializando': truncamiento de valor constante
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Proveedor.h(29,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Proveedor.h(59,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Proveedor.h(66,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Proveedor.h(73,7): warning C4101: 'q_estado': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Marca.h(57,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Marca.h(99,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(72,14): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(169,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(170,21): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(552,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(553,21): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra_Detalle.h(31,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra_Detalle.h(62,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra_Detalle.h(69,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra_Detalle.h(76,7): warning C4101: 'q_estado': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta_Detalle.h(75,16): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta_Detalle.h(96,17): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta_Detalle.h(97,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta_Detalle.h(137,16): warning C4309: 'inicializando': truncamiento de valor constante
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(30,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(62,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(69,7): warning C4101: 'q_estado': variable local sin referencia
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(76,7): warning C4101: 'q_estado': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(933,47): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1165,50): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1195,46): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1138,25): warning C4101: 'r': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1387,9): warning C4101: 'idm': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(878,10): warning C4101: 'existeE': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1478,51): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1353,10): warning C4101: 'serie': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1366,11): warning C4101: 'subtotal': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1354,9): warning C4101: 'no_factura': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1883,54): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1938,50): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1813,29): warning C4101: 'r': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2001,17): warning C4101: 'respuesta': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2281,9): warning C4101: 'idm': variable local sin referencia
   Venta.cpp
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(25,17): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(31,17): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(35,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(37,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(39,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Pantalla.h(41,13): warning C4309: '=': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(72,14): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(169,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(170,21): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(552,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Venta.h(553,21): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código
-  5 of 337 functions ( 1.5%) were compiled, the rest were copied from previous compilation.
+  1 of 398 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   PROYECTO FINAL PROGRA 1.vcxproj -> C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\x64\Release\PROYECTO FINAL PROGRA 1.exe
