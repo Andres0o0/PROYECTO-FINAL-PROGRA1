@@ -45,6 +45,7 @@ public:
 		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
+		Pantalla pa = Pantalla();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string consulta = "select * from marcas";
@@ -53,7 +54,7 @@ public:
 			if (!q_estado) {
 				int y1 = 6;
 				resultado = mysql_store_result(cn.getConectar());
-				Pantalla pa = Pantalla();
+				
 				char div = 186;
 				pa.color(96);
 				pa.dibujarCuadro(37, 1, 77, 3);
@@ -73,11 +74,11 @@ public:
 				pa.color(15);
 				pa.dibujarCuadro(37, 5, 77, y1);
 				cout << endl;
+				pa.gotoxy(37, y1);
 			}
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
 			}
-
 			cn.cerrar_conexion();
 		}
 	}

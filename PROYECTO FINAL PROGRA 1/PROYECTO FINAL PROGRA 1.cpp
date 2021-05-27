@@ -63,6 +63,19 @@ void buscarProducto();
 void modificarProducto();
 void eliminarProducto();
 
+void ingresarCompra();
+void MostrarCompras();
+void BuscarCompras();
+void ModificarCompras();
+void eliminarCompras();
+void imprimirfc(int idc);
+
+void IngresarProveedor();
+void MostrarProveedor();
+void BuscarProveedor();
+void ModificarProveedor();
+void EliminarProveedor();
+
 void puestos();
 void empleados();
 void clientes();
@@ -90,14 +103,14 @@ void menu() {
         cout << "           [MENU  PRINCIPAL]           ";
         p.color(15);
         p.gotoxy(0, 7);
-        cout << "   \t\t\t\t\t[1]  ACCEDER A LOS PUESTOS *"<<endl ;
-        cout << "   \t\t\t\t\t[2]  ACCEDER A LOS EMPLEADOS *" << endl;
-        cout << "   \t\t\t\t\t[3]  ACCEDER A LOS CLIENTES *" << endl;
-        cout << "   \t\t\t\t\t[4]  ACCEDER A LOS PROVEEDORES(pend)" << endl;
-        cout << "   \t\t\t\t\t[5]  ACCEDER A LAS MARCAS*" << endl;
+        cout << "   \t\t\t\t\t[1]  ACCEDER A LOS PUESTOS "<<endl ;
+        cout << "   \t\t\t\t\t[2]  ACCEDER A LOS EMPLEADOS " << endl;
+        cout << "   \t\t\t\t\t[3]  ACCEDER A LOS CLIENTES " << endl;
+        cout << "   \t\t\t\t\t[4]  ACCEDER A LOS PROVEEDORES" << endl;
+        cout << "   \t\t\t\t\t[5]  ACCEDER A LAS MARCAS" << endl;
         cout << "   \t\t\t\t\t[6]  ACCEDER A LOS PRODUCTOS" << endl;
-        cout << "   \t\t\t\t\t[7]  ACCEDER A LAS VENTAS*" << endl;
-        cout << "   \t\t\t\t\t[8]  ACCEDER A LAS COMPRAS (pend)" << endl;
+        cout << "   \t\t\t\t\t[7]  ACCEDER A LAS VENTAS" << endl;
+        cout << "   \t\t\t\t\t[8]  ACCEDER A LAS COMPRAS" << endl;
         cout << "   \t\t\t\t\t[9]  SALIR" << endl;
         p.color(8);
         p.dibujarCuadro(37, 6, 77, 16);
@@ -363,19 +376,29 @@ void proveedores(){
         cin >> opc;
         switch (opc) {
         case 1:
-
+            system("cls");
+            IngresarProveedor();
+            system("pause");
             break;
         case 2:
-
+            system("cls");
+            BuscarProveedor();
+            system("pause");
             break;
         case 3:
-            pv.mostrar();
+            system("cls");
+            MostrarProveedor();
+            system("pause");
             break;
         case 4:
-
+            system("cls");
+           ModificarProveedor();
+            system("pause");
             break;
         case 5:
-
+            system("cls");
+            EliminarProveedor();
+            system("pause");
             break;
         }
     } while (opc != 6);
@@ -582,19 +605,29 @@ void compras(){
         cin >> opc;
         switch (opc) {
         case 1:
-
+            system("cls");
+            ingresarCompra();
+            system("pause");
             break;
         case 2:
-
+            system("cls");
+            BuscarCompras();
+            system("pause");
             break;
         case 3:
-            cp.mostrar();
+            system("cls");
+            MostrarCompras();
+            system("pause");
             break;
         case 4:
-
+            system("cls");
+            ModificarCompras();
+            system("pause");
             break;
         case 5:
-
+            system("cls");
+            eliminarCompras();
+            system("pause");
             break;
         }
     } while (opc != 6);
@@ -1483,7 +1516,7 @@ void ingresarVenta(){
                     }
                     else {
                         pa.gotoxy(20, 8);
-                        cout << "NO EXISTE ESTE PRODUCTO" ;
+                        cout << "NO EXISTE ESTE PRODUCTO                    " ;
                     }
                     pa.gotoxy(20, 10);
                     cout << "DESEA AGREGAR OTRO PRODUCTO [S/N] ";
@@ -1518,7 +1551,7 @@ void ingresarVenta(){
     else {
         cout << "\t\t\t\t\tNO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
     }
-
+    pa.gotoxy(40, 13);
 }
 void buscarVenta(){
     Venta v = Venta();
@@ -2275,43 +2308,76 @@ void eliminarMarca(){
 void ingresarProducto(){
     Producto p = Producto();
     Marca m = Marca();
+    Pantalla pa = Pantalla();
     string producto, descripcion, imagen;
     int id_marca, existencia;
     float p_c, p_v;
     int idm;
     bool existe;
-    cout << "INGRESE LOS DATOS QUE SE LE SOLICITA " << endl;
-    cout << "INGRESE  PRODUCTO :" << endl;
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE EL LOS DATOS QUE SE SOLICITAN ";
+    pa.gotoxy(2, 2);
+    pa.color(15);
+    cout << "INGRESE  PRODUCTO " << endl;
+    pa.gotoxy(2, 5);
+    cout << "INGRESE LA DESCRIPCION " << endl;
+    pa.gotoxy(2, 9);
+    cout << "INGRESE LA IMAGEN (ejemplo.png) " << endl;
+    pa.gotoxy(80, 2);
+    cout << "INGRESE EL PRECIO COSTO " << endl;
+    pa.gotoxy(80, 5);
+    cout << "INGRESE SU PRECIO VENTA " << endl;
+    pa.gotoxy(80, 9);
+    cout << "INGRESE LAS EXISTENCIAS " << endl;
+    pa.color(6);
+    pa.gotoxy(2, 3);
     cin.ignore();
     getline(cin, producto);
-    cout << "ASIGNE LA MARCA POR MEDIO DEL ID " << endl;
+    pa.gotoxy(2, 6);
+    getline(cin, descripcion);
+    pa.gotoxy(2, 10);
+    getline(cin, imagen);
+    pa.color(15);
     do {
         m.mostrar();
-        cout << endl << "ASIGNE UN VALOR VALIDO ---> ";
+        cout << "\n\n                                        ASIGNE ID DE MARCA       \b\b";
+        pa.color(6);
         cin >> id_marca;
+        pa.color(15);
         existe = m.existemarca(id_marca);
     } while (existe == false);
-
-    cout << "INGRESE LA DESCRIPCION: " << endl;
-    cin.ignore();
-    getline(cin, descripcion);
-    cout << "INGRESE LA IMAGEN (ejemplo.png): " << endl;
-    getline(cin, imagen);
-    cout << "INGRESE EL PRECIO COSTO: " << endl;
+    pa.color(6);
+    pa.gotoxy(80, 3);
+    cout << "Q ";
     cin >> p_c;
-    cout << "INGRESE SU PRECIO VENTA: " << endl;
+    pa.gotoxy(80, 6);
+    cout << "Q ";
     cin >> p_v;
-    cout << "INGRESE LAS EXISTENCIAS: " << endl;
+    pa.gotoxy(80, 10);
     cin >> existencia;
     p = Producto(producto, id_marca, descripcion, imagen, p_c, p_v, existencia, "");
+    pa.color(15);
+    pa.gotoxy(2, 12);
     p.ingresar();
+    pa.gotoxy(2, 13);
 }
 void buscarProducto(){
     Producto p = Producto();
     bool existe;
     int idp;
-    cout << "INGRESE EL ID DEL PRODUCTO A BUSCAR ";
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << "  INGRESE EL ID DEL PRODUCTO A BUSCAR  ";
+    pa.gotoxy(39, 6);
+    pa.color(6);
     cin >> idp;
+    pa.color(15);
     existe = p.existeProducto(idp);
     if (existe == true) {
         p.buscar(idp);
@@ -2324,91 +2390,163 @@ void modificarProducto(){
     Producto p = Producto();
     bool existe;
     int idp;
+
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
     cout << "INGRESE EL ID DEL PRODUCTO A MODIFICAR ";
+    pa.gotoxy(39, 6);
+    pa.color(6);
     cin >> idp;
+    pa.color(15);
     existe = p.existeProducto(idp);
+    pa.gotoxy(39, 9);
     if (existe == true) {
         p.buscar(idp);
         char respuesta;
+        pa.gotoxy(35, 9);
         cout << "SEGURO QUE QUIERES MODIFICAR ESTE REGISTRO [S/N] ";
+        pa.color(6);
         cin >> respuesta;
+        pa.color(15);
+        pa.gotoxy(35, 10);
         if (respuesta == 'S' || respuesta == 's') {
             cout << "DESEA MODIFICAR EL NOMBRE DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
+            pa.gotoxy(35, 11);
             if (respuesta == 'S' || respuesta == 's') {
                 string producto;
                 cout << "INGRESE NUEVO PRODUCTO ";
-                cin >> producto;
+                pa.color(6);
+                cin.ignore();
+                    getline(cin, producto);
+                pa.color(15);
                 p.setProducto(producto);
-                p.modificarProducto(idp);
+                p.modificarProducto(idp);      
             }
-
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR EL EL ID DE LA MARCA [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
+            system("cls");
             if (respuesta == 'S' || respuesta == 's') {
                 int idMarca;
                 Marca m = Marca();
                 bool exM;
                 do {
                     m.mostrar();
-                    cout << "INGRESE NUEVO ID DE MARCA EXISTENTE ";
+                    pa.color(15);
+                    cout << "INGRESE NUEVO ID DE MARCA EXISTENTE       \b\b\b";
+                    pa.color(6);
                     cin >> idMarca;
+                    pa.color(15);
                     exM = m.existemarca(idMarca);
                     if (exM == true) {
                         p.setIdMarca(idMarca);
                         p.modificarIdMarca(idp);
                     }
-                    else {
-                        cout << "NO SE ENCONTRO DICHO ID VUELVA A PROBAR";
-                        }
+                   
                 } while (exM == false);
             }
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR LA DESCRIPCION DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
             if (respuesta == 'S' || respuesta == 's') {
                 string descripcion;
+                pa.gotoxy(35, 11);
                 cout << "INGRESE NUEVA DESCRIPCION ";
-                cin >> descripcion;
+                pa.color(6);
+                cin.ignore();
+                getline(cin, descripcion);
+                pa.color(15);
                 p.setDescripcion(descripcion);
                 p.modificarDescripcion(idp);
             }
+            pa.color(15);
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR IMAGEN DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
             if (respuesta == 'S' || respuesta == 's') {
                 string imagen;
+                pa.gotoxy(35, 11);
                 cout << "INGRESE NUEVA IMAGEN ";
-                cin >> imagen;
+                pa.color(6);
+                cin.ignore();
+                getline(cin, imagen);
+                pa.color(15);
                 p.setImagen(imagen);
                 p.modificarImagen(idp);
             }
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR EL PRECIO DE COSTO DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
             if (respuesta == 'S' || respuesta == 's') {
                 float preciocosto;
+                pa.gotoxy(35, 11);
                 cout << "INGRESE NUEVO PRECIO DE COSTO ";
+                pa.color(6);
                 cin >> preciocosto;
+                pa.color(15);
                 p.setPrecioCosto(preciocosto);
                 p.modificarPrecioCosto(idp);
             }
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR EL PRECIO DE VENTA DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
             if (respuesta == 'S' || respuesta == 's') {
                 float precioventa;
+                pa.gotoxy(35, 11);
                 cout << "INGRESE NUEVO PRECIO DE VENTA ";
+                pa.color(6);
                 cin >> precioventa;
+                pa.color(15);
                 p.setPrecioVenta(precioventa);
                 p.modificarPrecioVenta(idp);
             }
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
             cout << "DESEA MODIFICAR LAS EXISTENCIAS DEL PRODUCTO [S/N] ";
+            pa.color(6);
             cin >> respuesta;
+            pa.color(15);
             if (respuesta == 'S' || respuesta == 's') {
                 int existencia;
+                pa.gotoxy(35, 11);
                 cout << "INGRESE NUEVO VALOR DE EXISTENCIAS ";
+                pa.color(6);
                 cin >> existencia;
+                pa.color(15);
                 p.setExistencia(existencia);
                 p.modificarExistencia(idp);
             }
-
+            system("cls");
+            p.buscar(idp);
+            pa.gotoxy(35, 10);
         }
     }
     else {
@@ -2420,23 +2558,788 @@ void eliminarProducto(){
     bool existe;
     int idp;
     char respuesta;
-    cout << "INGRESE EL ID DEL PRODUCTO A ELIMINAR ";
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE EL ID DEL PRODUCTO A ELIMINAR ";
+    pa.gotoxy(39, 6);
+    pa.color(6);
     cin >> idp;
+    pa.color(15);
     existe = p.existeProducto(idp);
     if (existe == true) {
         p.buscar(idp);
+        pa.gotoxy(35, 9);
         cout << "SEGURO QUE QUIERES ELIMINAR ESTE REGISTRO [S/N] ";
+        pa.color(6);
         cin >> respuesta;
+        pa.color(15);
+        pa.gotoxy(35, 10);
         if (respuesta == 'S' || respuesta == 's') {
             p.eliminar(idp);
         }
         else {
+            pa.gotoxy(35, 11);
             cout << "SE HA DETENIDO LA ELIMINACION" << endl;
         }
     }
     else {
+        pa.gotoxy(35, 8);
         cout << "NO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
     }
+}
+
+void ingresarCompra() {
+    Compra c = Compra();
+    Compra_Detalle cd = Compra_Detalle();
+    Proveedor p = Proveedor();
+    Producto pr = Producto();
+    Pantalla pa = Pantalla();
+    c.nocompra();
+    string  f_o,proveedor,idcompra;
+    int  idc, id_producto, idproveedor, cant;
+    float precio_costo;
+    bool existe;
+    char respuesta;
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE EL LOS DATOS QUE SE SOLICITAN ";
+    pa.color(15);
+    do {
+        p.mostrar();
+        cout << "INGRESE EL ID DEL PROVEEDOR DE LOS PROVEEDORES SIGUIENTES    \b\b\b";
+        pa.color(6);
+        cin >> idproveedor;
+        existe = p.existeproveedor(idproveedor);
+        pa.color(15);
+    } while (existe==false);
+    system("cls");
+    pa.gotoxy(2, 2);
+    proveedor = p.getProveedor();
+    c.setIdProveedor(idproveedor);
+    cout << "PROVEEDOR: ";
+    pa.gotoxy(40, 2);
+    cout << "INGRESE LA FECHA DE ORDEN [ANIO-MES-DIA]" << endl;
+    pa.color(6);
+    pa.gotoxy(2, 3);
+    cout << idproveedor;
+    pa.gotoxy(40, 3);
+    cin.ignore();
+    getline(cin, f_o);
+    pa.color(15);
+    c.setFechaOrden(f_o);
+    c.ingresar();
+    idcompra = c.idcompra();
+    idc = stoi(idcompra);
+    cd.setIdCompra(idc);
+    do {
+        system("cls");
+        c.buscar(idc);
+        cd.mostrar(idc);
+        pa.gotoxy(20, 10);
+        pa.color(15);
+        cout << "AGREGUE ID DE UN PRODUCTO ";
+        pa.color(6);
+        cin >> id_producto;
+        pa.color(15);
+        bool existeproducto = pr.existeProducto(id_producto);
+        if (existeproducto == true) {
+            pa.gotoxy(20, 10);
+            pr.verProducto(id_producto);
+            pa.gotoxy(20, 11);
+            cout << "AGREGUE CANTIDAD: ";
+            pa.color(6);
+            cin >> cant;
+            pa.color(15);
+             pa.gotoxy(20, 12);
+             cout << "AGREGUE PRECIO COSTO ";
+                pa.color(6);
+                cin >> precio_costo;
+                pa.color(15);
+                cd = Compra_Detalle(idc, id_producto, cant, precio_costo);
+                pa.gotoxy(20, 13);
+                cd.ingresar();
+                c.buscar(idc);
+                cd.mostrar(idc);
+        }
+        else {
+            pa.gotoxy(20, 10);
+            cout << "NO EXISTE ESTE PRODUCTO                    ";
+            Sleep(1500);
+        }
+        pa.gotoxy(20, 10);
+        system("cls");
+        c.buscar(idc);
+        cd.mostrar(idc);
+        pa.gotoxy(20, 10);
+        cout << "DESEA AGREGAR OTRO PRODUCTO [S/N] ";
+        pa.color(6);
+        cin >> respuesta;
+        pa.color(15);
+    } while (respuesta == 'S' || respuesta == 's');
+    system("cls");
+    c.buscar(idc);
+    cd.mostrar(idc);
+    pa.color(10);
+    pa.gotoxy(20, 10);
+    cout << " DESEA IMPRIMIR LA FACTURA [S/N] : ";
+    cin >> respuesta;
+    pa.color(15);
+    if (respuesta == 'S' || respuesta == 's') {
+        pa.gotoxy(20, 10);
+        imprimirfc(idc);
+    }
+
+}
+
+void imprimirfc(int idc) {
+    
+        Pantalla pa = Pantalla();
+        pa.color(10);
+        pa.gotoxy(38, 11);
+        Compra c = Compra();
+        c.imprimirFactura(idc);
+        tifstream in(TEXT("facturac.txt"));
+        PrintFile(in);
+        in.close();
+        pa.color(15);
+        pa.gotoxy(38, 12);
+
+}
+
+void MostrarCompras() {
+    Compra c = Compra();
+    c.mostrar();
+
+}
+
+void BuscarCompras() {
+    Compra c = Compra();
+    Pantalla pa = Pantalla();
+    Compra_Detalle cd = Compra_Detalle();
+    bool existe;
+    char respuesta;
+    int idcompra, idcd, opcion;
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << "  INGRESE LA INFORMACION PARA BUSCAR   ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL NUMERO DE ORDEN ";
+    pa.color(6);
+    cin >> opcion;
+    pa.color(15);
+    existe = c.ExisteCompra(opcion);
+    if (existe == true) {
+        string idc = c.retIdCompra(opcion);
+        if (idc != "ERROR") {
+            idcompra = stoi(idc);
+            c.buscar(idcompra);
+            cd.setIdCompra(idcompra);
+            cd.mostrar(idcompra);
+            pa.color(10);
+            pa.gotoxy(20, 10);
+            cout << " DESEA IMPRIMIR LA FACTURA [S/N] : ";
+            cin >> respuesta;
+            pa.color(15);
+            if (respuesta == 'S' || respuesta == 's') {
+                pa.gotoxy(20, 10);
+                imprimirfc(idcompra);
+            }
+
+        }
+        else {
+            cout << "NO SE ENCONTRO DICHO REGISTRO";
+        }
+    }
+    else {
+        pa.gotoxy(28, 10);
+        cout << "NO SE ENCONTRO ESTE REGISTRO";
+        pa.gotoxy(28, 11);
+    }
+}
+
+void ModificarCompras() {
+    Compra c = Compra();
+    Compra_Detalle cd = Compra_Detalle();
+    Proveedor p = Proveedor();
+    Producto pr = Producto();
+    Pantalla pa = Pantalla();
+    string  f_o;
+    char respuesta;
+    int idcd, id_c, id_producto, idproveedor, idcompra, no_or_c, cant, opcion;
+    float precio_costo;
+    bool existe;
+    pa.color(15);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE LA INFORMACION PARA MODIFICAR ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL NUMERO DE ORDEN ";
+    pa.color(6);
+    cin >> no_or_c;
+    existe = c.ExisteCompra(no_or_c);
+    pa.color(15);
+    if (existe == true) {
+        system("cls");
+        string idc = c.retIdCompra(no_or_c);
+        if (idc != "ERROR") {
+            idcompra = stoi(idc);
+            c.buscar(idcompra);
+            cd.setIdCompra(idcompra);
+            cd.mostrar(idcompra);
+            pa.gotoxy(40, 9);
+            cout << "SEGURO QUE QUIERE EDITAR ESTE REGISTRO [S/N] ";
+                pa.color(6);
+                cin >> respuesta;
+                pa.color(15);
+                pa.gotoxy(40, 10);
+                if (respuesta == 's' || respuesta == 'S') {
+                    system("cls");
+                    c.buscar(idcompra);
+                    cd.mostrar(idcompra);
+                    pa.gotoxy(40, 9);
+                    cout << "[1] EDITAR ENCABEZADO ";
+                    pa.gotoxy(40, 10);
+                    cout << "[2] EDITAR PRODUCTOS ";
+                    pa.gotoxy(40, 11);
+                    cout << " INGRESE UNA OPCION ";
+                    pa.color(6);
+                    cin >> opcion;
+                    pa.color(15);
+                    system("cls");
+                    pa.gotoxy(40, 9);
+                    if (opcion == 1) {
+                        do {
+                            p.mostrar();
+                            cout << "INGRESE EL ID DEL PROVEEDOR DE LOS PROVEEDORES SIGUIENTES    \b\b\b";
+                            pa.color(6);
+                            cin >> idproveedor;
+                            existe = p.existeproveedor(idproveedor);
+                            pa.color(15);
+                        } while (existe == false);
+                        system("cls");
+                        c.setIdProveedor(idproveedor);
+                        pa.gotoxy(2, 2);
+                        cout << "PROVEEDOR: ";
+                        pa.gotoxy(40, 2);
+                        cout << "INGRESE LA FECHA DE ORDEN [ANIO-MES-DIA]" << endl;
+                        pa.color(6);
+                        pa.gotoxy(2, 3);
+                        cout << idproveedor;
+                        pa.gotoxy(40, 3);
+                        cin.ignore();
+                        getline(cin, f_o);
+                        pa.color(15);
+                        c.setFechaOrden(f_o);
+                        c.modificar(idcompra);
+                        system("cls");
+                        c.buscar(idcompra);
+                        cd.mostrar(idcompra);
+                        pa.gotoxy(40, 10);
+                    }
+                    if (opcion == 2) {
+                        c.buscar(idcompra);
+                        cd.mostrar(idcompra);
+                        pa.gotoxy(40, 9);
+                        cout << "[1] MODIFICAR REGISTROS ";
+                        pa.gotoxy(40, 10);
+                        cout << "[2] AGREGAR MAS REGISTROS ";
+                        pa.gotoxy(40, 11);
+                        cout << " INGRESE UNA OPCION ";
+                        pa.color(6);
+                        cin >> opcion;
+                        pa.color(15);
+                        system("cls");
+                        if (opcion == 1) {
+                            system("cls");
+                            c.buscar(idcompra);
+                            cd.mostrar(idcompra);
+                            pa.color(15);
+                            pa.gotoxy(40, 10);
+                            cout << "INGRESE ID DEL DETALLE A MODIFICAR ";
+                            pa.color(6);
+                            cin >> idcd;
+                            pa.color(15);
+                            existe = cd.ExisteComp_det(idcd);
+                            if (existe == true) {
+                                cd.buscar(idcd);
+                                pa.gotoxy(40, 12);
+                                cout << "ES ESTE EL DETALLE A EDITAR [S/N] ";
+                                pa.color(6);
+                                cin >> respuesta;
+                                pa.color(15);
+                                if (respuesta == 's' || respuesta == 'S') {
+                                    system("cls");
+                                    c.buscar(idcompra);
+                                    cd.mostrar(idcompra);
+                                    pa.gotoxy(20, 10);
+                                    pa.color(15);
+                                    cout << "AGREGUE ID DE UN PRODUCTO ";
+                                    pa.color(6);
+                                    cin >> id_producto;
+                                    pa.color(15);
+                                    bool existeproducto = pr.existeProducto(id_producto);
+                                    if (existeproducto == true) {
+                                        pa.gotoxy(20, 10);
+                                        pr.verProducto(id_producto);
+                                        pa.gotoxy(20, 11);
+                                        cout << "AGREGUE CANTIDAD: ";
+                                        pa.color(6);
+                                        cin >> cant;
+                                        pa.color(15);
+                                        pa.gotoxy(20, 12);
+                                        cout << "AGREGUE PRECIO COSTO ";
+                                        pa.color(6);
+                                        cin >> precio_costo;
+                                        pa.color(15);
+                                        cd.setIdProducto(id_producto);
+                                        cd.setCantidad(cant);
+                                        cd.setPrecioCostoUnitario(precio_costo);
+                                        pa.gotoxy(20, 13);
+                                        cd.modificar(idcd);
+                                        c.buscar(idcompra);
+                                        cd.mostrar(idcompra);
+                                    }
+                                    else {
+                                        pa.gotoxy(20, 10);
+                                        cout << "NO EXISTE ESTE PRODUCTO                    ";
+                                        Sleep(1500);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                cout << "NO SE HALLO EL DETALLE ";
+                            }
+                        }
+                        if (opcion == 2) {
+                            system("cls");
+                            c.buscar(idcompra);
+                            cd.mostrar(idcompra);
+                            pa.gotoxy(20, 10);
+                            pa.color(15);
+                            cout << "AGREGUE ID DE UN PRODUCTO ";
+                            pa.color(6);
+                            cin >> id_producto;
+                            pa.color(15);
+                            bool existeproducto = pr.existeProducto(id_producto);
+                            if (existeproducto == true) {
+                                pa.gotoxy(20, 10);
+                                pr.verProducto(id_producto);
+                                pa.gotoxy(20, 11);
+                                cout << "AGREGUE CANTIDAD: ";
+                                pa.color(6);
+                                cin >> cant;
+                                pa.color(15);
+                                pa.gotoxy(20, 12);
+                                cout << "AGREGUE PRECIO COSTO ";
+                                pa.color(6);
+                                cin >> precio_costo;
+                                pa.color(15);
+                                cd.setIdProducto(id_producto);
+                                cd.setCantidad(cant);
+                                cd.setPrecioCostoUnitario(precio_costo);
+                                pa.gotoxy(20, 13);
+                                cd.setIdCompra(idcompra);
+                                cd.ingresar();
+                                c.buscar(idcompra);
+                                cd.mostrar(idcompra);
+                            }
+                            else {
+                                pa.gotoxy(20, 10);
+                                cout << "NO EXISTE ESTE PRODUCTO                    ";
+                                Sleep(1500);
+                            }
+                        }
+                    }
+
+                }
+                else {
+                    cout<< "SE HA DETENIDO LA MODIFICACION ";
+                }
+        }
+        else {
+            cout << "NO SE ENCONTRO DICHO REGISTRO";
+        }
+    }
+}
+
+
+void eliminarCompras() {
+    Compra c = Compra();
+    Compra_Detalle cd = Compra_Detalle();
+    Proveedor p = Proveedor();
+    Producto pr = Producto();
+    Pantalla pa = Pantalla();
+    string  f_o;
+    char respuesta;
+    int idcd, id_c, id_producto, idproveedor, idcompra, no_or_c, cant, opcion;
+    float precio_costo;
+    bool existe;
+    pa.color(15);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << "   INGRESE LA INFORMACION PARA BORRAR  ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL NUMERO DE ORDEN ";
+    pa.color(6);
+    cin >> no_or_c;
+    existe = c.ExisteCompra(no_or_c);
+    pa.color(15);
+    if (existe == true) {
+        system("cls");
+        string idc = c.retIdCompra(no_or_c);
+        if (idc != "ERROR") {
+            idcompra = stoi(idc);
+            c.buscar(idcompra);
+            cd.setIdCompra(idcompra);
+            cd.mostrar(idcompra);
+            pa.gotoxy(40, 9);
+            cout << "SEGURO QUE QUIERE ELIMINAR ALGO ESTE REGISTRO [S/N] ";
+            pa.color(6);
+            cin >> respuesta;
+            pa.color(15);
+            pa.gotoxy(40, 10);
+            if (respuesta == 's' || respuesta == 'S') {
+                system("cls");
+                c.buscar(idcompra);
+                cd.mostrar(idcompra);
+                pa.gotoxy(40, 9);
+                cout << "[1] ELIMINACION COMPLETA ";
+                pa.gotoxy(40, 10);
+                cout << "[2] ELIMINACION DE PRODUCTOS ";
+                pa.gotoxy(40, 11);
+                cout << " INGRESE UNA OPCION ";
+                pa.color(6);
+                cin >> opcion;
+                pa.color(15);
+                system("cls");
+                pa.gotoxy(40, 9);
+                if (opcion == 1) {
+                    system("cls");
+                    c.buscar(idcompra);
+                    cd.mostrar(idcompra);
+                    pa.gotoxy(40, 10);
+                    pa.color(15);
+                    cout << " SEGURO QUE QUIERES ELIMINAR ESTE REGISTRO [S/N] ";
+                    pa.color(6);
+                    cin >> respuesta;
+                    pa.color(15);
+                    if (respuesta == 'S' || respuesta == 's') {
+                        cd.eliminarTodo(idcompra);
+                        c.eliminar(idcompra);
+                        pa.gotoxy(40, 12);
+                        cout << "ELIMINACION CONCLUIDA " << endl;
+                        pa.gotoxy(40, 13);
+                    }
+                }
+                if (opcion == 2) {
+                    system("cls");
+                    c.buscar(idcompra);
+                    cd.mostrar(idcompra);
+                    pa.gotoxy(40, 9);
+                    cout << " INGRESE ID DE COMPRA DETALLE A ELIMINAR ";
+                    int idcd;
+                    pa.color(6);
+                    cin >> idcd;
+                    pa.color(15);
+                    pa.gotoxy(40, 10);
+                    existe = cd.ExisteComp_det(idcd);
+                    if (existe == true) {
+                        cd.buscar(idcd);
+                        pa.gotoxy(40, 12);
+                        cout << "SEGURO QUE QUIERE ELIMINAR ESTE DETALLE [S/N] ";
+                        pa.color(6);
+                        cin >> respuesta;
+                        pa.color(15);
+                        if (respuesta == 'S' || respuesta == 's') {
+                            cd.eliminar(idcd);
+                            system("cls");
+                            c.buscar(idcompra);
+                            cd.mostrar(idcompra);
+                            pa.gotoxy(40, 12);
+                            cout << "ELIMINACION CORRECTA";
+                            Sleep(1500);
+                        }
+
+                    }
+                    else {
+                        cout << "NO EXISTE ESTE ID ";
+                    }
+                }
+
+            }
+            else {
+                cout << "SE HA DETENIDO LA MODIFICACION ";
+            }
+        }
+    }
+    else {
+            cout << "NO SE ENCONTRO DICHO REGISTRO";
+        }
+}
+
+void IngresarProveedor() {
+    Proveedor p = Proveedor();
+    Pantalla pa = Pantalla();
+    string prov, nit, dir;
+    int idproveedor, tel;
+
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE EL LOS DATOS QUE SE SOLICITAN ";
+    pa.gotoxy(12, 5);
+    pa.color(15);
+    cout << "INGRESE NOMBRE DEL PROVEEDOR: " << endl;
+    pa.gotoxy(60, 5);
+    cout << "INGRESE EL NIT  " << endl;
+    pa.gotoxy(12, 8);
+    cout << "INGRESE LA DIRECCION DEL PROVEEDOR : " << endl;
+    pa.gotoxy(60, 8);
+    cout << "INGRESE EL TELEFONO DEL PROVEEDOR: " << endl;
+    pa.color(6);
+    pa.gotoxy(12, 6);
+    cin.ignore();
+    getline(cin, prov);
+    bool existenit;
+    do {
+        pa.gotoxy(59, 6);
+        pa.color(15);
+        cout << "       ";
+        pa.color(6);
+        pa.gotoxy(60, 6);
+        getline(cin, nit);
+        int n = stoi(nit);
+        existenit = p.existeNit(n);
+        if (existenit == true) {
+            pa.gotoxy(60, 5);
+            cout << "INGRESE NIT NO REGISTRADO  " << endl;
+        }
+    } while (existenit == true);
+    pa.color(6);
+    pa.gotoxy(12, 9);
+    getline(cin, dir);
+    pa.gotoxy(60, 9);
+    cin.ignore();
+    cin >> tel;
+    pa.color(15);
+    p = Proveedor(prov, nit, dir, tel);
+    pa.gotoxy(40, 10);
+    p.ingresar();
+    pa.gotoxy(40, 11);
+}
+
+void MostrarProveedor() {
+    Proveedor p = Proveedor();
+    cout << "PROVEEDORES EXISTENTES: " << endl;
+    p.mostrar();
+}
+
+void BuscarProveedor() {
+    Proveedor p = Proveedor();
+    int idproveedor;
+    bool existe;
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << "  INGRESE LA INFORMACION PARA BUSCAR   ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL PROVEEDOR A BUSCAR: ";
+    pa.color(6);
+    cin >> idproveedor;
+    pa.color(15);
+    existe = p.existeproveedor(idproveedor);
+    if (existe == true) {
+        system("cls");
+        p.buscar(idproveedor);
+    }
+
+}
+
+void ModificarProveedor() {
+    Proveedor p = Proveedor();
+    string prov, nit, dir;
+    int idproveedor, tel;
+    bool existe;
+    char respuesta;
+
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << " INGRESE LA INFORMACION PARA MODIFICAR ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL ID DEL PROVEEDOR: ";
+    pa.color(6);
+    cin >> idproveedor;
+    pa.color(15);
+    pa.gotoxy(40, 10);
+    existe = p.existeproveedor(idproveedor);
+    if (existe == true) {
+        system("cls");
+        p.buscar(idproveedor);
+        pa.gotoxy(40, 10);
+        cout << "SEGURO QUE QUIERE MODIFICAR ESTE REGISTRO [S/N] " ;
+        pa.color(6);
+        cin >> respuesta;
+        pa.color(15);
+        pa.gotoxy(40, 11);
+        if ((respuesta == 's') || (respuesta == 'S')) {
+            pa.gotoxy(40, 11);
+            cout << "DESEA MODIFICAR EL NOMBRE DEL PROVEEDOR ";
+            pa.color(6);
+            cin >> respuesta;
+            pa.color(15);
+            if ((respuesta == 's') || (respuesta == 'S')) {
+                pa.gotoxy(40, 12);
+                cout << "INGRESE EL NUEVO NOMBRE DEL PROVEEDOR " ;
+                pa.gotoxy(40, 13);
+                cin.ignore();
+                pa.color(6);
+                getline(cin, prov);
+                pa.color(15);
+                p.setNombres(prov);
+                p.modificarProveedor(idproveedor);
+            }
+            system("cls");
+            p.buscar(idproveedor);
+            pa.gotoxy(40, 11);
+            cout << "DESEA MODIFICAR EL NIT DEL PROVEEDOR " ;
+            pa.color(6);
+            cin >> respuesta;
+            pa.color(15);
+            if ((respuesta == 's') || (respuesta == 'S')) {
+                pa.gotoxy(40, 12);
+                cout << "INGRESE EL NUEVO NIT DEL PROVEEDOR ";
+                pa.color(6);
+                bool existenit;
+                cin.ignore();
+                int n;
+                do {
+                    pa.gotoxy(38, 13);
+                    cout << "         ";
+                    pa.gotoxy(40, 13);
+                    cin >> n;
+                    existenit = p.existeNit(n);
+                    nit = to_string(n);
+                } while (existenit == true);
+                pa.color(15);
+                p.setNit(nit);
+                p.modificarNit(idproveedor);
+                
+            }
+            system("cls");
+            p.buscar(idproveedor);
+            pa.gotoxy(40, 11);
+            cout << "DESEA MODIFICAR LA DIRECCION " ;
+            pa.color(6);
+            cin >> respuesta;
+            pa.color(15);
+            if ((respuesta == 's') || (respuesta == 'S')) {
+                pa.gotoxy(40, 12);
+                cout << "INGRESE LA NUEVA DIRECCION DEL PROVEEDOR " << endl;
+                pa.gotoxy(40, 13);
+                pa.color(6);
+                cin.ignore();
+                getline(cin, dir);
+                p.setDireccion(dir);
+                p.modificarDireccion(idproveedor);
+            }
+            system("cls");
+            p.buscar(idproveedor);
+            pa.gotoxy(40, 11);
+            cout << "DESEA MODIFICAR EL TELEFONO " ;
+            pa.color(6);
+            cin >> respuesta;
+            pa.color(15);
+            if ((respuesta == 's') || (respuesta == 'S')) {
+                pa.gotoxy(40, 12);
+                cout << "INGRESE EL NUEVO TELEFONO DEL PROVEEDOR " << endl;
+                pa.gotoxy(40, 13);
+                pa.color(6);
+                cin >> tel;
+                pa.color(15);
+                p.setTelefono(tel);
+                p.modificarTelefono(idproveedor);
+            }
+        }
+        else
+        {
+            cout << "SE HA INTERRUMPIDO LA MODIFICACION" << endl;
+        }
+    }
+    else {
+        cout << "EL ID QUE INGRESO NO ESTA REGISTRADO EN LA BASE DE DATOS" << endl;
+    }
+
+
+}
+
+void EliminarProveedor() {
+    Proveedor p = Proveedor();
+    int idproveedor;
+    char respuesta;
+    bool existe;
+
+    Pantalla pa = Pantalla();
+    pa.color(8);
+    pa.dibujarCuadro(37, 5, 77, 7);
+    pa.color(240);
+    pa.dibujarCuadro(37, 1, 77, 3);
+    pa.gotoxy(38, 2);
+    cout << "  INGRESE LA INFORMACION PARA BORRAR   ";
+    pa.color(15);
+    pa.gotoxy(38, 6);
+    cout << "INGRESE EL ID DEL PROVEEDOR: ";
+    pa.color(6);
+    cin >> idproveedor;
+    pa.color(15);
+    pa.gotoxy(27, 10);
+    existe = p.existeproveedor(idproveedor);
+    if (existe == true) {
+        system("cls");
+        p.buscar(idproveedor);
+        cout << "RECUERDE QUE NO PUEDE ELIMINAR PROVEEDORES SI SE HAN ASIGNADO A OTRAS TABLAS" << endl;
+        pa.gotoxy(40, 11);
+        cout << "SEGURO QUE QUIERE ELIMINAR ESTE REGISTRO [S/N] ";
+        pa.color(6);
+        cin >> respuesta;
+        pa.color(15);
+        pa.gotoxy(40, 12);
+        if ((respuesta == 's') || (respuesta == 'S')) {
+            p.eliminar(idproveedor);
+        }
+        else
+        {
+            cout << "SE HA INTERRUMPIDO LA ELIMINACION" << endl;
+        }
+    }
+    else {
+        cout << "NO SE HA ENCONTRADO EL ID EN LA BASE DE DATOS" << endl;
+    }
+    pa.gotoxy(40, 13);
 }
 
 
@@ -2446,12 +3349,12 @@ void Outtextxy(HDC hdc, int x, int y, tstring Msg)
 }
 void ShowError(tstring strMsg)
 {
-    MessageBox(NULL, strMsg.c_str(), TEXT("Imprimir"), MB_ICONERROR);
+    MessageBox(NULL, strMsg.c_str(), TEXT("GENERACION FACTURA"), MB_ICONERROR);
     exit(1);
 }
 void ShowInformation(tstring strText)
 {
-    MessageBox(NULL, strText.c_str(), TEXT("Imprimir"), MB_ICONINFORMATION);
+    MessageBox(NULL, strText.c_str(), TEXT("GENERACION FACTURA"), MB_ICONINFORMATION);
 }
 void PrintFile(tifstream& f)
 {
@@ -2475,7 +3378,7 @@ void PrintFile(tifstream& f)
 
 
     if (f.fail())
-        ShowError(TEXT("Error el archivo no se pudo abrir para lectura"));
+        ShowError(TEXT("Error el archivo no se pudo abrir "));
 
     if (PrintDlg(&pd)) {
         if (pd.hDC) {
@@ -2500,9 +3403,9 @@ void PrintFile(tifstream& f)
 
     }
     else
-        ShowInformation(TEXT("Se cancelo la impresion"));
+        ShowInformation(TEXT("SE CANCELO IMPRESION DE FACTURA"));
 
-    ShowInformation(TEXT("Termino la impresion correctamente."));
+    ShowInformation(TEXT("FINALIZADO PORFAVOR RETIRE SU FACTURA"));
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar

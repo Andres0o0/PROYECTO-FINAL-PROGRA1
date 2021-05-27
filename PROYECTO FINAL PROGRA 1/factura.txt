@@ -1,11 +1,11 @@
-   ID 18      FACTURA NO: 103   SERIE: D    FECHA: 2021-05-25
-   CIENTE:  CONSUMIDOR FINAL                          NIT: C/F
-   ATIENDE: CARLA CAMPOS [ CONTADOR ]
+   ID 14      FACTURA NO: 100   SERIE: D    FECHA: 2021-05-20
+   CIENTE:  CARLOS ANTONIO HERRERA                          NIT: 432
+   ATIENDE: ANDRES HERNANDEZ [ GERENTE ]
 
    [ID]                      --PRODUCTOS--     
-   28    | 4  LAPTOP 	MARCA  HP C/U Q 6000.00
-          MODELO INSPIRO 15385
-   29    | 2  TELEVISOR 	MARCA  SAMSUNG C/U Q 2000.00
+   21    | 3  TELEVISOR 	MARCA  SAMSUNG C/U Q 2000.00
           24 PULGADAS
+   22    | 4  LAPTOP 	MARCA  HP C/U Q 6000.00
+          MODELO INSPIRO 15385
 
-                              TOTAL Q.  28000
+                              TOTAL Q.  30000

@@ -71,6 +71,7 @@ public:
 		int q_estado;
 		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
+		Pantalla pa = Pantalla();
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
@@ -79,10 +80,59 @@ public:
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "id | productos | marca | descripcion | imagen | precio costo | precio venta | existencia | fecha ingreso" << endl;
+
+				int y1 = 6;
+				char div = 186;
+				pa.color(96);
+				pa.gotoxy(1, 2);
+				cout << "                                                                                                              ";
+				pa.dibujarCuadro(0, 1, 119, 3);
+				pa.gotoxy(1, 2);
+				cout << "ID  ";
+				pa.gotoxy(5, 2);
+				cout << div << " PRODUCTO";
+				pa.gotoxy(19, 2);
+				cout << div << " MARCA";
+				pa.gotoxy(34, 2);
+				cout << div << " DESCRIPCION";
+				pa.gotoxy(59, 2);
+				cout << div << " IMAGEN";
+				pa.gotoxy(75, 2);
+				cout << div << " PRECIO COSTO";
+				pa.gotoxy(85, 2);
+				cout << div << "PRECIO V ";
+				pa.gotoxy(94, 2);
+				cout << div << "EXST ";
+				pa.gotoxy(99, 2);
+				cout << div << "FECHA INGRESO      ";
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << fila[6] << " | " << fila[7] << " | " << fila[8] << endl;
+					pa.color(6);
+					pa.gotoxy(1, y1);
+					cout << fila[0];
+					pa.gotoxy(5, y1);
+					cout << div << fila[1];
+					pa.gotoxy(19, y1);
+					cout << div << fila[2];
+					pa.gotoxy(34, y1);
+					cout << div << fila[3];
+					pa.gotoxy(59, y1);
+					cout << div << fila[4];
+					pa.gotoxy(75, y1);
+					cout << div << fila[5];
+					pa.gotoxy(85, y1);
+					cout << div << fila[6];
+					pa.gotoxy(94, y1);
+					cout << div << fila[7];
+					pa.gotoxy(99, y1);
+					cout << div << fila[8];
+					y1++;
 				}
+				pa.dibujarCuadro(0, 5, 119, y1);
+				pa.color(15);
+				y1++;
+				y1++;
+				y1++;
+				pa.gotoxy(0, y1);
 			}
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
@@ -93,6 +143,7 @@ public:
 	}
 	void buscar(int ide) {
 		int q_estado;
+		Pantalla pa = Pantalla();
 		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
@@ -104,10 +155,57 @@ public:
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "id | productos | marca | descripcion | imagen | precio costo | precio venta | existencia | fecha ingreso" << endl;
+
+				int y1 = 6;
+				char div = 186;
+				pa.color(96);
+				pa.gotoxy(1, 2);
+				cout << "                                                                                                              ";
+				pa.dibujarCuadro(0, 1, 119, 3);
+				pa.gotoxy(1, 2);
+				cout << "ID  ";
+				pa.gotoxy(5, 2);
+				cout << div << " PRODUCTO";
+				pa.gotoxy(19, 2);
+				cout << div << " MARCA";
+				pa.gotoxy(34, 2);
+				cout << div << " DESCRIPCION";
+				pa.gotoxy(59, 2);
+				cout << div << " IMAGEN";
+				pa.gotoxy(75, 2);
+				cout << div << " PRECIO COSTO";
+				pa.gotoxy(85, 2);
+				cout << div << "PRECIO V ";
+				pa.gotoxy(94, 2);
+				cout << div << "EXST ";
+				pa.gotoxy(99, 2);
+				cout << div << "FECHA INGRESO      ";
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << fila[6] << " | " << fila[7] << " | " << fila[8] << endl;
+					pa.color(6);
+					pa.gotoxy(1, y1);
+					cout <<fila[0];
+					pa.gotoxy(5, y1);
+					cout << div << fila[1];
+					pa.gotoxy(19, y1);
+					cout << div << fila[2];
+					pa.gotoxy(34, y1);
+					cout << div << fila[3];
+					pa.gotoxy(59, y1);
+					cout << div << fila[4];
+					pa.gotoxy(75, y1);
+					cout << div << fila[5];
+					pa.gotoxy(85, y1);
+					cout << div << fila[6];
+					pa.gotoxy(94, y1);
+					cout << div << fila[7];
+					pa.gotoxy(99, y1);
+					cout << div << fila[8];
+					y1++;
 				}
+				pa.dibujarCuadro(0, 5, 119, y1);
+				pa.color(15);
+				y1++;
+				pa.gotoxy(0, y1);
 			}
 			else {
 				cout << "ERROR AL CONECTAR CON LA BASE DE DATOS";
