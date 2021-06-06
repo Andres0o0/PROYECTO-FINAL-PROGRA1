@@ -39,28 +39,29 @@ C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(473,19): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(474,21): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\Compra.h(447,8): warning C4101: 'y1': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(911,10): warning C4101: 'existeE': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1511,51): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1386,10): warning C4101: 'serie': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1399,11): warning C4101: 'subtotal': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1387,9): warning C4101: 'no_factura': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1916,54): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1971,50): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1846,29): warning C4101: 'r': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2034,17): warning C4101: 'respuesta': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2315,9): warning C4101: 'idm': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2726,19): warning C4101: 'idcd': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2777,15): warning C4101: 'id_c': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2987,66): warning C4101: 'cant': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2987,34): warning C4101: 'idproveedor': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2987,9): warning C4101: 'idcd': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2988,11): warning C4101: 'precio_costo': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2987,21): warning C4101: 'id_producto': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2987,15): warning C4101: 'id_c': variable local sin referencia
-C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3100,9): warning C4101: 'idproveedor': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(924,10): warning C4101: 'existeE': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1527,51): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1399,10): warning C4101: 'serie': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1412,11): warning C4101: 'subtotal': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1400,9): warning C4101: 'no_factura': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1936,54): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1991,50): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(1866,29): warning C4101: 'r': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2056,17): warning C4101: 'respuesta': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2337,9): warning C4101: 'idm': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2748,19): warning C4101: 'idcd': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(2799,15): warning C4101: 'id_c': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3009,66): warning C4101: 'cant': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3009,34): warning C4101: 'idproveedor': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3009,9): warning C4101: 'idcd': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3010,11): warning C4101: 'precio_costo': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3009,21): warning C4101: 'id_producto': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3009,15): warning C4101: 'id_c': variable local sin referencia
+C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1\PROYECTO FINAL PROGRA 1.cpp(3122,9): warning C4101: 'idproveedor': variable local sin referencia
+  SerialPort.cpp
   Generando código
-  1 of 448 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+  33 of 479 functions ( 6.9%) were compiled, the rest were copied from previous compilation.
+    31 functions were new in current compilation
+    18 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   PROYECTO FINAL PROGRA 1.vcxproj -> C:\Users\andre\Desktop\UMG\Programacion 1\PROYECTO FINAL PROGRA 1\x64\Release\PROYECTO FINAL PROGRA 1.exe

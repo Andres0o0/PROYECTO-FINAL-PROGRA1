@@ -1,11 +1,11 @@
-   ID 14      FACTURA NO: 100   SERIE: D    FECHA: 2021-05-20
-   CIENTE:  CARLOS ANTONIO HERRERA                          NIT: 432
-   ATIENDE: ANDRES HERNANDEZ [ GERENTE ]
+   ID 21      FACTURA NO: 105   SERIE: D    FECHA: 2021-06-06
+   CIENTE:  CONSUMIDOR FINAL                          NIT: C/F
+   ATIENDE: CARLA CAMPOS [ CONTADOR ]
 
    [ID]                      --PRODUCTOS--     
-   21    | 3  TELEVISOR 	MARCA  SAMSUNG C/U Q 2000.00
+   36    | 10  TELEVISOR 	MARCA  SAMSUNG C/U Q 2000.00
           24 PULGADAS
-   22    | 4  LAPTOP 	MARCA  HP C/U Q 6000.00
-          MODELO INSPIRO 15385
+   37    | 1  ESTUFA 	MARCA  LG C/U Q 2300.00
+          4 HORNILLAS CON HORNO
 
-                              TOTAL Q.  30000
+                              TOTAL Q.  22300

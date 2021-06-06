@@ -17,11 +17,24 @@
 #include"Pantalla.h"
 #include <fstream> 
 #include <conio.h>
+#include"SerialPort.h"
 
 using namespace std;
 
 typedef std::basic_ifstream<TCHAR> tifstream;
 typedef std::basic_string<TCHAR> tstring;
+
+char output[MAX_DATA_LENGTH];
+char incomingData[MAX_DATA_LENGTH];
+
+char commport[] = "\\\\.\\COM4";
+char* port = commport;
+SerialPort arduino(port);
+void cinta_transportadora();
+void apagar_cinta();
+void caja_registradora();
+void apagar();
+void salir();
 
 //PARA IMPRIMIR
 void Outtextxy(HDC hdc, int x, int y, tstring Msg);
@@ -1475,6 +1488,7 @@ void ingresarVenta(){
             if (idventa != "ERROR") {
                 do {
                     system("cls");
+                    cinta_transportadora();
                     id_venta = stoi(idventa);
                     v.buscar();
                     pa.gotoxy(20, 8);
@@ -1492,6 +1506,8 @@ void ingresarVenta(){
                         pa.color(6);
                         cin >> cantidad;
                         pa.color(15);
+                        pa.gotoxy(18, 9);
+                        cout << "                       ";
                         int cant = stoi(cantidad);
                         string precioventa;
                         precioventa = p.returnPV(id_producto);
@@ -1529,6 +1545,8 @@ void ingresarVenta(){
                 v.buscar();
                 vd.buscar();
                 pa.color(10);
+                apagar_cinta();
+                caja_registradora();
                 pa.gotoxy(20, 10);
                 cout << " DESEA IMPRIMIR LA FACTURA [S/N] : ";
                 cin >> respuesta;
@@ -1551,6 +1569,8 @@ void ingresarVenta(){
     else {
         cout << "\t\t\t\t\tNO EXISTE ESTE ID EN LA BASE DE DATOS" << endl;
     }
+    apagar();
+    salir();
     pa.gotoxy(40, 13);
 }
 void buscarVenta(){
@@ -1861,7 +1881,7 @@ void modificarVenta() {
                         cout << "                                               ";
                         pa.gotoxy(20, 11);
                         cout << "                                               ";
-
+                        cinta_transportadora();
                         if (res == 1) {
                             
                             pa.color(15);
@@ -1986,6 +2006,7 @@ void modificarVenta() {
                             }
 
                         }
+                        apagar_cinta();
                         pa.color(15);
                         id_venta = v.asignardatos();
                         if (id_venta != "ERROR") {
@@ -2008,6 +2029,7 @@ void modificarVenta() {
                         pa.gotoxy(20, 10);
                         cout << "                                                                                        ";
                     } while (respuesta == 'S' || respuesta == 's');
+                    salir();
                 }
                 else {
                     pa.gotoxy(30, 10);
@@ -3383,7 +3405,7 @@ void PrintFile(tifstream& f)
     if (PrintDlg(&pd)) {
         if (pd.hDC) {
             if (StartDoc(pd.hDC, &di) != SP_ERROR) {
-                cout << "Imprimiendo... Espere un momento";
+                cout << "Imprimiendo... Espere un momento              ";
                 StartPage(pd.hDC);
                 while (!f.eof()) {
                     getline(f, strLine);
@@ -3406,6 +3428,99 @@ void PrintFile(tifstream& f)
         ShowInformation(TEXT("SE CANCELO IMPRESION DE FACTURA"));
 
     ShowInformation(TEXT("FINALIZADO PORFAVOR RETIRE SU FACTURA"));
+}
+
+void cinta_transportadora() {
+
+    string data = "1";
+
+
+    char* charArray = new char[data.size() + 1];
+    copy(data.begin(), data.end(), charArray);
+    charArray[data.size()] = '\n';
+
+    arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+    arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+    cout << ">> " << output << endl;
+
+    delete[] charArray;
+    system("cls");
+    //ystem("pause");
+}
+
+void apagar_cinta() {
+
+    string data = "2";
+
+
+    char* charArray = new char[data.size() + 1];
+    copy(data.begin(), data.end(), charArray);
+    charArray[data.size()] = '\n';
+
+    arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+    arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+    cout << ">> " << output << endl;
+
+    delete[] charArray;
+    system("cls");
+    //system("pause");
+}
+
+void caja_registradora() {
+    string data = "3";
+
+
+    char* charArray = new char[data.size() + 1];
+    copy(data.begin(), data.end(), charArray);
+    charArray[data.size()] = '\n';
+
+    arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+    arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+    cout << ">> " << output << endl;
+
+    delete[] charArray;
+    system("cls");
+    //system("pause");
+}
+void apagar() {
+    string data = "4";
+
+
+    char* charArray = new char[data.size() + 1];
+    copy(data.begin(), data.end(), charArray);
+    charArray[data.size()] = '\n';
+
+    arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+    arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+    cout << ">> " << output << endl;
+
+    delete[] charArray;
+    system("cls");
+    //system("pause");
+
+}
+
+void salir() {
+    string data = "5";
+
+
+    char* charArray = new char[data.size() + 1];
+    copy(data.begin(), data.end(), charArray);
+    charArray[data.size()] = '\n';
+
+    arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+    arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+    cout << ">> " << output << endl;
+
+    delete[] charArray;
+    system("cls");
+    //system("pause");
+
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
